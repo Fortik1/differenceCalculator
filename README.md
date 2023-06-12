@@ -1,7 +1,7 @@
 # differenceCalculator
 ##### HTML site showing changes in files
 ---
-**Hotkey:**
+#### **Hotkey:**
 - [File list](#fileList)
 - [Install](#installation)
 - [Usage](#usage)
