@@ -1,6 +1,7 @@
 {
   "name": "differencecalculator",
   "version": "1.0.0",
+  "type": "module",
   "description": "--- #### **Hotkey:** - [File list](#fileList) - [Install](#installation) - [Usage](#usage)",
   "main": "index.js",
   "scripts": {
