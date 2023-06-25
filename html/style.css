@@ -1,9 +1,13 @@
+body {
+  background: #F5F5F5;
+}
+
 .col1 {
   border: solid #7d7f7d 2px;
-  padding: 15px 15px;
   border-radius: 15px;
   height: 360px;
   font-size: 16px;
+  padding: 1rem;
 }
 
 .c-button {
@@ -13,51 +17,53 @@
   background: #4676D7;
   color: #fff;
   padding: 8px 16px;
+  font-family: Verdana, sans-serif;
+  font-weight: 500;
   font-size: 16px;
-  width: 50%
+  width: 40%;
+  position: relative;
+  left: 28.5%;
 }
 
 .c-button:hover {
-background: #1d49aa;
+  background: #1d49aa;
 }
 
 .c-button:focus {
-outline: none;
-box-shadow: 0 0 0 4px #cbd6ee;
+  outline: none;
+  box-shadow: 0 0 0 4px #cbd6ee;
 }
-
 
 textarea {
-  border-radius: 15px;
-  background: #fff;
-  text-overflow: ellipsis;
-  resize: none;
-  outline: none;
-  font-size: 16px;
-  padding: 15px 15px;
-  border: solid #7d7f7d 2px;
-  height: 110px;
-  padding: 1rem;
-  margin-bottom: 1.7rem;
-  font-family: Verdana, sans-serif;
-}
+    border-radius: 15px;
+    background: #fff;
+    resize: none;
+    outline: none;
+    font-size: 16px;
+    border: solid #7d7f7d 2px;
+    height: 110px;
+    padding: 1rem;
+    margin-bottom: 1.7rem;
+    font-family: Verdana, sans-serif;
+ }
 
 main {
-display: flex;
+  display: flex;
 }
 
-aside {
-margin-left: 10%;
-margin-top: 50px;
-width: 70%;
-display: flex;
-flex-direction: column;
+.two-rectangles {
+  margin-left: 10%;
+  margin-top: 35px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
-section {
-width: 160%;
-margin-left: 5%;
-margin-right: 10%;
-margin-top: 35px;
-padding: 15px 15px;
+.rectangle {
+  border-radius: 15px;
+  background: #fff;
+  width: 160%;
+  margin-left: 5%;
+  margin-right: 10%;
+  margin-top: 35px;
 }
