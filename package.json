@@ -16,5 +16,8 @@
     "url": "https://github.com/Fortik1/differenceCalculator/issues"
   },
   "homepage": "https://github.com/Fortik1/differenceCalculator#readme",
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
