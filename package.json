@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "type": "module",
   "description": "--- #### **Hotkey:** - [File list](#fileList) - [Install](#installation) - [Usage](#usage)",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/Fortik1/differenceCalculator/issues"
   },
-  "homepage": "https://github.com/Fortik1/differenceCalculator#readme"
+  "homepage": "https://github.com/Fortik1/differenceCalculator#readme",
+  "main": "index.js"
 }
