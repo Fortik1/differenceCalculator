@@ -10,5 +10,3 @@ const alert = () => {
 };
 
 button.addEventListener('click', alert);
-
-
