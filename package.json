@@ -18,7 +18,10 @@
   "homepage": "https://github.com/Fortik1/differenceCalculator#readme",
   "main": "index.js",
   "dependencies": {
-    "eslint": "^8.43.0",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-plugin-react": "^7.32.2"
   }
 }
