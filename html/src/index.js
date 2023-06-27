@@ -7,6 +7,7 @@ const output = document.getElementById('output');
 
 const alert = () => {
     const out = parser(before.value, after.value);
+    output.prepend(out);
 };
 
 button.addEventListener('click', alert);
