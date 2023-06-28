@@ -33,6 +33,16 @@ textarea {
 
 .col1 {
   cursor: default;
+  font-size: 16px;
+  width: 100%;
+  min-width: 600px;
+  margin-left: 70px;
+  margin-top: 35px;
+  border: solid #7d7f7d 2px;
+  height: 630px;
+  padding: 1rem;
+  border-radius: 15px;
+  background: #fff;
 }
 
 .col2 {
@@ -50,6 +60,7 @@ main {
   margin-top: 45px;
   margin-right: 120px;
   margin-left: 120px;
+  margin-bottom: 55px;
 }
 
 .two-rectangles {
@@ -58,20 +69,6 @@ main {
   min-width: 300px;
   display: flex;
   flex-direction: column;
-}
-
-.rectangle {
-  border-radius: 15px;
-  background: #fff;
-  width: 100%;
-  min-width: 600px;
-  margin-left: 70px;
-  margin-top: 35px;
-  border: solid #7d7f7d 2px;
-  height: 500px;
-  font-size: 16px;
-  padding: 1rem;
-  box-sizing: border-box;
 }
 
 .font {
