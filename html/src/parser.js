@@ -1,4 +1,9 @@
-import _ from 'lodash';
+import union from "../../node_modules/lodash-es/union.js"
+import sortBy from "../../node_modules/lodash-es/sortBy.js"
+import isPlainObject from "../../node_modules/lodash-es/isPlainObject.js"
+import isEqual from "../../node_modules/lodash-es/isEqual.js"
+import f from "../../node_modules/lodash-es/union.js"
+
 
 const spacesCount = 4;
 const replacer = ' ';
@@ -14,7 +19,7 @@ const getFourOrEightSpaces = (depth) => {
 };
 
 const stringify = (data, depth) => {
-  if (!_.isPlainObject(data)) {
+  if (!isPlainObject(data)) {
     return String(data);
   }
   const lines = Object.entries(data).map(
@@ -60,7 +65,7 @@ const iter = (diff, depth = 1) => diff.map((node) => {
   }
 });
 function getTree(data1, data2) {
-    const files = _.sortBy(_.union(Object.keys(data1), Object.keys(data2)));
+    const files = sortBy(union(Object.keys(data1), Object.keys(data2)));
   
     const result = files.map((key) => {
       if (!Object.hasOwn(data2, key)) {
@@ -77,14 +82,14 @@ function getTree(data1, data2) {
           value: data2[key],
         };
       }
-      if (_.isPlainObject(data1[key]) && _.isPlainObject(data2[key])) {
+      if (isPlainObject(data1[key]) && isPlainObject(data2[key])) {
         return {
           key,
           children: getTree(data1[key], data2[key]),
           type: 'nested',
         };
       }
-      if (!_.isEqual(data1[key], data2[key])) {
+      if (!isEqual(data1[key], data2[key])) {
         return {
           key,
           type: 'changed',
@@ -107,7 +112,6 @@ const stylishFormat = (tree) => {
   return `{\n${result.join('\n')}\n}`;
 };
 
-export default (before, after) => {
-return stylishFormat(getTree(before,after))
-};
+
+export default (before, after) => stylishFormat(getTree(before,after))
 
