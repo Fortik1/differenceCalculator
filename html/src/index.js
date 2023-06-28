@@ -6,7 +6,8 @@ const button = document.getElementById('button');
 const output = document.getElementById('output');
 
 const alert = () => {
-    const out = parser(before.value, after.value);
+    const out = parser(JSON.parse(before.value), JSON.parse(after.value));
+    output.value = out
 };
 
 button.addEventListener('click', alert);
