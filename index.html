@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./html/style.css">
+    <title>Difference Calculator</title>
+</head>
+<body>
+  <h1 class="titles font">JSON Diff</h1>
+  <h2 class="titles font">The semantic JSON compare tool</h2>
+    <main>
+      <section class="two-rectangles">
+        <textarea id="after" class="font col2" name="textfield" type="text" value="" placeholder="After"></textarea>
+        <textarea id="before" class="font col2" name="textfield" type="text" value="" placeholder="Before"></textarea>
+        <button id="button font" class="c-button">Сравнить</button>
+      </section>
+      <section class="rectangle">
+      <textarea name="1" rows=5 cols=70 readonly id="output" class="font col1"></textarea>
+      </section>
+  </main>
+</body>
+<script type="module" src="./html/src/index.js"></script>
+</html>
