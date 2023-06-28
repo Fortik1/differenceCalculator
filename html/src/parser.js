@@ -113,5 +113,5 @@ const stylishFormat = (tree) => {
 };
 
 
-export default (before, after) => stylishFormat(getTree(before,after))
+export default (before = "", after = "") => stylishFormat(getTree(before,after))
 

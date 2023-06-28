@@ -2,7 +2,7 @@ import parser from "./parser.js";
 
 const after = document.getElementById('after');
 const before = document.getElementById('before');
-const button = document.getElementById('button');
+const button = document.querySelector('.c-button');
 const output = document.getElementById('output');
 
 const alert = () => {
