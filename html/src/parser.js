@@ -1,5 +1,4 @@
 import union from "../../node_modules/lodash-es/union.js"
-import sortBy from "../../node_modules/lodash-es/sortBy.js"
 import isPlainObject from "../../node_modules/lodash-es/isPlainObject.js"
 import isEqual from "../../node_modules/lodash-es/isEqual.js"
 
@@ -63,7 +62,6 @@ const iter = (diff, depth = 1) => diff.map((node) => {
     }
     case 'array': {
       const lines = iter(node.children, depth + 1);
-      console.log(lines);
       return `${getFourOrEightSpaces(depth)}${node.key}: [\n${lines.map(editArray).join(
         '\n'
       )}\n${getFourOrEightSpaces(depth)}]`;

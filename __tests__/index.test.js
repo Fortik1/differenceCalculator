@@ -12,14 +12,19 @@ const getFixturePath = (nameFile) => path.join(__dirname, '..', '__fixtures__', 
 const readFile = (nameFile) => fs.readFileSync(getFixturePath(nameFile), 'utf-8');
 
 const testDefault = readFile('test1.txt');
+const testParser = readFile('testParser.txt');
 
-const file1 = readFile('file1.json');
-const file2 = readFile('file2.json');
+const file1 = JSON.parse(readFile('file1.json'));
+const file2 = JSON.parse(readFile('file2.json'));
 
 test('json', () => {
-    expect(parser(JSON.parse(file1), JSON.parse(file2))).toEqual(testDefault);
+    parser(file1, file2) === testDefault;
 });
 
 test('empty json', () => {
     expect(parser()).toEqual('');
+});
+
+test('test parser', () => {
+    parser(file1) === testParser;
 });
