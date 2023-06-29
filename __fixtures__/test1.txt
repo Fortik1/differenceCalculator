@@ -1,0 +1,22 @@
+{
+    person: {
+        name: Алексей
+        surname: Суворов
+        patroymic: Александрович
+      - age: 37
+      + age: 39
+        height: 183
+    }
+    married: true
+  - pets: false
+  + pets: true
+    children: [
+        Кира
+        Женя
+      + Саша
+    ]
+    address: {
+        city: Новосибриск
+        streetAddress: Кировское ш., кв.47
+    }
+}

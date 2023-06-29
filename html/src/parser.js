@@ -25,7 +25,7 @@ const stringify = (data, depth) => {
   const lines = Object.entries(data).map(
     ([key, value]) => `${getFourOrEightSpaces(depth + 1)}${key}: ${stringify(value, depth + 1)}`,
   );
-  return `{\n${lines.join('\n')}\n${getFourOrEightSpaces(depth)}}`;
+  return `{\n${lines.reverse().join('\n')}\n${getFourOrEightSpaces(depth)}}`;
 };
 
 const iter = (diff, depth = 1) => diff.map((node) => {
@@ -56,7 +56,7 @@ const iter = (diff, depth = 1) => diff.map((node) => {
       )}`;
     case 'nested': {
       const lines = iter(node.children, depth + 1);
-      return `${getFourOrEightSpaces(depth)}${node.key}: {\n${lines.join(
+      return `${getFourOrEightSpaces(depth)}${node.key}: {\n${lines.reverse().join(
         '\n',
       )}\n${getFourOrEightSpaces(depth)}}`;
     }
@@ -109,7 +109,7 @@ function getTree(data1, data2) {
 
 const stylishFormat = (tree) => {
   const result = iter(tree, 1);
-  return `{\n${result.join('\n')}\n}`;
+  return `{\n${result.reverse().join('\n')}\n}`;
 };
 
 
