@@ -1,8 +1,6 @@
 import union from "../../node_modules/lodash-es/union.js"
-import sortBy from "../../node_modules/lodash-es/sortBy.js"
 import isPlainObject from "../../node_modules/lodash-es/isPlainObject.js"
 import isEqual from "../../node_modules/lodash-es/isEqual.js"
-import f from "../../node_modules/lodash-es/union.js"
 
 
 const spacesCount = 4;
@@ -25,8 +23,10 @@ const stringify = (data, depth) => {
   const lines = Object.entries(data).map(
     ([key, value]) => `${getFourOrEightSpaces(depth + 1)}${key}: ${stringify(value, depth + 1)}`,
   );
-  return `{\n${lines.reverse().join('\n')}\n${getFourOrEightSpaces(depth)}}`;
+  return `{\n${lines.join('\n')}\n${getFourOrEightSpaces(depth)}}`;
 };
+
+const editArray = (i) => i.split(' ').filter((o) => o.indexOf(':') === -1).join(' ');
 
 const iter = (diff, depth = 1) => diff.map((node) => {
   switch (node.type) {
@@ -56,16 +56,22 @@ const iter = (diff, depth = 1) => diff.map((node) => {
       )}`;
     case 'nested': {
       const lines = iter(node.children, depth + 1);
-      return `${getFourOrEightSpaces(depth)}${node.key}: {\n${lines.reverse().join(
+      return `${getFourOrEightSpaces(depth)}${node.key}: {\n${lines.join(
         '\n',
       )}\n${getFourOrEightSpaces(depth)}}`;
+    }
+    case 'array': {
+      const lines = iter(node.children, depth + 1);
+      return `${getFourOrEightSpaces(depth)}${node.key}: [\n${lines.map(editArray).join(
+        '\n'
+      )}\n${getFourOrEightSpaces(depth)}]`;
     }
     default:
       throw new Error(`Unknown type of node '${node.type}'.`);
   }
 });
 function getTree(data1, data2) {
-    const files = sortBy(union(Object.keys(data1), Object.keys(data2)));
+    const files = union(Object.keys(data1), Object.keys(data2));
   
     const result = files.map((key) => {
       if (!Object.hasOwn(data2, key)) {
@@ -89,6 +95,13 @@ function getTree(data1, data2) {
           type: 'nested',
         };
       }
+      if (Array.isArray(data1[key]) && Array.isArray(data2[key])) {
+        return {
+          key,
+          children: getTree(data1[key], data2[key]),
+          type: 'array',
+        }
+      }
       if (!isEqual(data1[key], data2[key])) {
         return {
           key,
@@ -109,9 +122,9 @@ function getTree(data1, data2) {
 
 const stylishFormat = (tree) => {
   const result = iter(tree, 1);
-  return `{\n${result.reverse().join('\n')}\n}`;
+  return `{\n${result.join('\n')}\n}`;
 };
 
 
-export default (before = "", after = "") => stylishFormat(getTree(before,after))
+export default (before = "", after = "") => (before || after) === "" ? "" : stylishFormat(getTree(before,after))
 
