@@ -1,0 +1,20 @@
+{
+    "person": {
+        "name": "Алексей",
+        "surname": "Суворов",
+        "patroymic": "Александрович",
+        "age": "39",
+        "height": "183"
+    },
+    "married": "true",
+    "pets": "true",
+    "children": [
+        "Кира",
+        "Женя",
+        "Саша"
+    ],
+    "address": {
+        "city": "Новосибриск",
+        "streetAddress": "Кировское ш., кв.47"
+    }
+}

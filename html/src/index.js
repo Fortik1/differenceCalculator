@@ -6,7 +6,7 @@ const button = document.querySelector('.c-button');
 const output = document.getElementById('output');
 
 const alert = () => {
-    const out = parser(JSON.parse(before.value), JSON.parse(after.value));
+    const out = parser(JSON.parse(after.value), JSON.parse(before.value));
     output.value = out
 };
 
